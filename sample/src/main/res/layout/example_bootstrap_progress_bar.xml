@@ -29,6 +29,27 @@
         style="@style/progress_weight_container">
 
         <Button
+            android:id="@+id/example_progress_custom_btn"
+            style="@style/description_label"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Custom"
+            />
+
+        <com.beardedhen.androidbootstrap.BootstrapProgressBar
+            android:id="@+id/example_progress_custom"
+            style="@style/progress_example"
+            app:animated="true"
+            app:striped="true"
+            app:bootstrapProgress="25"
+            app:bootstrapSize="xs"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/progress_weight_container">
+
+        <Button
             android:id="@+id/example_progress_animated_btn"
             style="@style/description_label"
             android:layout_width="0dp"

@@ -98,6 +98,11 @@ public enum DefaultBootstrapBrand implements BootstrapBrand {
         return resolveColor(textColor, context);
     }
 
+    @Override
+    public int backgroundColor(Context context) {
+        return resolveColor(R.color.bootstrap_gray_light, context);
+    }
+
     @ColorInt public int getColor() {
         return color;
     }

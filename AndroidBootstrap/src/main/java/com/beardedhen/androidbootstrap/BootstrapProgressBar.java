@@ -117,10 +117,6 @@ public class BootstrapProgressBar extends View implements ProgressView, Bootstra
         textPaint.setColor(ColorUtils.resolveColor(android.R.color.black, getContext()));
         textPaint.setTextSize(DimenUtils.pixelsFromSpResource(getContext(), R.dimen.bootstrap_progress_bar_default_font_size));
 
-        bgPaint = new Paint();
-        bgPaint.setStyle(Paint.Style.FILL);
-        bgPaint.setColor(ColorUtils.resolveColor(R.color.bootstrap_gray_light, getContext()));
-
         // get attributes
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BootstrapProgressBar);
 
@@ -141,6 +137,10 @@ public class BootstrapProgressBar extends View implements ProgressView, Bootstra
         } finally {
             a.recycle();
         }
+
+        bgPaint = new Paint();
+        bgPaint.setStyle(Paint.Style.FILL);
+        bgPaint.setColor(bootstrapBrand.backgroundColor(getContext()));
 
         textPaint.setColor(bootstrapBrand.defaultTextColor(getContext()));
         textPaint.setTextSize((DimenUtils.pixelsFromSpResource(getContext(), R.dimen.bootstrap_button_default_font_size)) * this.bootstrapSize );
@@ -529,6 +529,7 @@ public class BootstrapProgressBar extends View implements ProgressView, Bootstra
     public void setBootstrapBrand(@NonNull BootstrapBrand bootstrapBrand) {
         this.bootstrapBrand = bootstrapBrand;
         textPaint.setColor(bootstrapBrand.defaultTextColor(getContext()));
+        bgPaint.setColor(bootstrapBrand.backgroundColor(getContext()));
         updateBootstrapState();
     }
 

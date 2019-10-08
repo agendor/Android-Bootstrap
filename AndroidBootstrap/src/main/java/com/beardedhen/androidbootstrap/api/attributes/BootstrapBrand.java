@@ -85,5 +85,13 @@ public interface BootstrapBrand extends Serializable {
      */
     @ColorInt int disabledTextColor(Context context);
 
+    /**
+     * Retrieves the color that should be used for the default background state
+     *
+     * @param context the current context
+     * @return the color for the current brand
+     */
+    @ColorInt int backgroundColor(Context context);
+
     @ColorInt int getColor();
 }

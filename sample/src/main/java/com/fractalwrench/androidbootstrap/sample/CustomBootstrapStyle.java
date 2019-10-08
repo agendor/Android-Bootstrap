@@ -19,6 +19,7 @@ public class CustomBootstrapStyle implements BootstrapBrand {
     @ColorInt private final int disabledFill;
     @ColorInt private final int disabledEdge;
     @ColorInt private final int disabledTextColor;
+    @ColorInt private final int backgroundColor;
 
     @SuppressWarnings("deprecation") public CustomBootstrapStyle(Context context) {
         defaultFill = context.getResources().getColor(R.color.custom_default_fill);
@@ -30,6 +31,7 @@ public class CustomBootstrapStyle implements BootstrapBrand {
         disabledFill = context.getResources().getColor(R.color.custom_disabled_fill);
         disabledEdge = context.getResources().getColor(R.color.custom_disabled_edge);
         disabledTextColor = context.getResources().getColor(R.color.bootstrap_gray);
+        backgroundColor = context.getResources().getColor(R.color.custom_background_color);
     }
 
     @Override public int defaultFill(Context context) {
@@ -66,6 +68,10 @@ public class CustomBootstrapStyle implements BootstrapBrand {
 
     @Override public int disabledTextColor(Context context) {
         return disabledTextColor;
+    }
+
+    @Override public int backgroundColor(Context context) {
+        return backgroundColor;
     }
 
     @Override public int getColor() {

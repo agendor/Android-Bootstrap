@@ -1,5 +1,7 @@
 package com.fractalwrench.androidbootstrap.sample;
 
+import android.os.Bundle;
+
 import com.beardedhen.androidbootstrap.BootstrapProgressBar;
 import com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand;
 import com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapSize;
@@ -50,14 +52,25 @@ public class BootstrapProgressBarExample extends BaseActivity {
     }
 
     @BindView(R.id.example_progress_default) BootstrapProgressBar defaultExample;
+    @BindView(R.id.example_progress_custom) BootstrapProgressBar customExample;
     @BindView(R.id.example_progress_animated) BootstrapProgressBar animatedExample;
     @BindView(R.id.example_progress_striped) BootstrapProgressBar stripedExample;
     @BindView(R.id.example_progress_striped_animated) BootstrapProgressBar stripedAnimExample;
     @BindView(R.id.example_progress_change) BootstrapProgressBar changeExample;
     @BindView(R.id.example_size_change) BootstrapProgressBar sizeExample;
 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        CustomBootstrapStyle customBootstrapStyle = new CustomBootstrapStyle(this);
+        customExample.setBootstrapBrand(customBootstrapStyle);
+    }
+
     @OnClick(R.id.example_progress_default_btn) void onDefaultClicked() {
         defaultExample.setProgress(randomProgress(defaultExample.getProgress(), 100));
+    }
+
+    @OnClick(R.id.example_progress_custom_btn) void onCustomClicked() {
+        customExample.setProgress(randomProgress(customExample.getProgress(), 100));
     }
 
     @OnClick(R.id.example_progress_animated_btn) void onAnimatedClicked() {
